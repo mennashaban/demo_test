@@ -1,0 +1,3 @@
+0 face
+1 currency
+2 object
