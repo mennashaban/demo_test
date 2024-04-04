@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     loadModel();
   }
 
-  loadModel() async {
+  loadModel() async{
     await Tflite.loadModel(
       model: "assets/model_quant_gp.tflite",
       labels: "assets/labels.txt",
