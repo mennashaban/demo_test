@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   loadModel() async{
     await Tflite.loadModel(
-      model: "assets/model_quant_gp.tflite",
+      model: "assets/model.tflite",
       labels: "assets/labels.txt",
     );
   }
@@ -30,11 +30,13 @@ class _MyHomePageState extends State<MyHomePage> {
   classifyImage(File image) async {
     var result = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 1,
+      numResults: 3,
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
     );
+    print("Classification Result:");
+    print(result);
     setState(() {
       _result = result![0]['label'];
     });
